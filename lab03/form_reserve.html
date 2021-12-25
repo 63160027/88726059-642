@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" type="text/css" href="D:/63160027/88726059-642/lab03/CSS/mystyle.css">
+</head>
+<body>
+    <b><font FACE="Calibri" size="6">Hotel Booking</font><b>
+    <form method="POST" action="https://angsila.cs.buu.ac.th/~wittawas/642/88726059/services/post.php">
+        <table>
+            <br>
+            <tr>
+                <td><font FACE="Cordia New" size="5"><label for="name">Room Type &nbsp;&nbsp;&nbsp;&nbsp; </label></font></td>
+                <td>
+                    <select name="emotion"  style="width: 350px">
+                        <option value="0">Please Select</option>
+                        <option value="1">Standard</option>
+                        <option value="2">Luxury</option>
+                        <option value="3">Deluxe</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><font FACE="Cordia New" size="5"><label for="name">Number of Guests &nbsp;&nbsp;&nbsp;&nbsp; </label></font></td>
+                <td>
+                    <select name="emotion"  style="width: 350px">
+                        <option value="0">Please Select</option>
+                        <option value="1">1-2</option>
+                        <option value="2">3-4</option>
+                        <option value="3">5-6</option>
+                        <option value="3">7-8</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><font FACE="Cordia New" size="5"><label for="name">Name &nbsp;&nbsp;&nbsp;&nbsp; </label></font></td>
+                <td>
+                    <input type="text" name="fname" id="name" placeholder="First">
+                    <input type="text" name="lname" id="name" placeholder="Last"style="width: 167px">
+                </td>
+            </tr>
+            <tr>
+                <td><font FACE="Cordia New" size="5"><label for="name">Email &nbsp;&nbsp;&nbsp;&nbsp; </label></font></td>
+                <td>
+                    <input type="text" name="email" id="name" placeholder="john@company.com" style="width: 340px">
+                </td>
+            </tr>
+            <tr>
+                <td><font FACE="Cordia New" size="5"><label for="name">Arrival &nbsp;&nbsp;&nbsp;&nbsp; </label></font></td>
+                <td>
+                    <input type="date" name="arivaldate" style="width: 166px">
+                    <input type="time" name="arivaltime" style="width: 167px">
+                </td>
+            </tr>
+            <tr>
+                <td><font FACE="Cordia New" size="5"><label for="name">Departure &nbsp;&nbsp;&nbsp;&nbsp; </label></font></td>
+                <td>
+                    <input type="date" name="arivaldate" style="width: 166px">
+                    <input type="time" name="arivaltime" style="width: 167px">
+                </td>
+            </tr>
+            <tr>
+                <form>
+                    <tr>
+                        <td><font FACE="Cordia New" size="5"><label for="name">Free Pickup &nbsp;&nbsp;&nbsp;&nbsp; </label></font></td>
+                        <td>
+                            <font FACE="Cordia New" size="5"><input type="radio" name="Pickup" id="sex" value="Yes">Yes, Sure!</font><br>
+                            <font FACE="Cordia New" size="5"><input type="radio" name="Pickup" id="sex" value="No">No, I already rented a car.</font>
+                        </td>
+                    </tr>
+                </form>
+            </tr>
+            <tr>
+                <td><font FACE="Cordia New" size="5"><label for="name">Flight Number &nbsp;&nbsp;&nbsp;&nbsp; </label></font></td>
+                <td>
+                    <input type="text" name="flightnum" id="name" placeholder="C1209" style="width: 340px">
+                </td>
+            </tr>
+            <tr>
+                <td><font FACE="Cordia New" size="5">Other requests</font></td>
+                <td><Textarea name="otherreq" id="comment" rows="5" cols="50"></Textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Complete Reservation">
+                </td>
+            </tr>
+        </table>
+        <br><br>
+    </form>
+</body>
+</html>
