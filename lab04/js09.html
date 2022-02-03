@@ -1,0 +1,31 @@
+<html>
+    <head><title>Pull-down Menu with URL Revealed</title>
+        <script language=JavaScript>
+            function doMoveBrowser(form){
+                parent.location.href=form.list.options[getSelectedValue()].value;
+            }
+            function getSelectedValue(){
+                return document.form1.list.selectedIndex
+            }
+            function showURL(form){
+                form.TextBox.value = form.list.options[getSelectedValue()].value;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Pull-down Menu with URL Revealed</h2>
+        <center>
+            <form name="form1">
+                <select name=list onChange=showURL(this.form)>
+                    <option selected value="0">Where do you want to go today?</option>
+                    <option value="https://www.google.com">Google</option>
+                    <option value="https://www.buu.ac.th">Buu University</option>
+                    <option value="https://www.informatics.buu.ac.th">Faculty of Infoematics</option>
+                </select>
+                <input type="button" value="Go" onclick=doMoveBrowser(this.form)>
+                <input type="reset" value="Reset">
+                <input type="text" name=TextBox size=40>
+            </form>
+        </center>
+    </body>
+</html>
