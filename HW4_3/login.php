@@ -39,17 +39,30 @@ if($_POST){
     <title>Login</title>
 </head>
 
-<body>
-    <h3>Login</h3>
-    <form action="login.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <br><br>
-        <input type="submit" value="login" name="submit">
-    </form>
+<body style="background-color:#FDEFEF">
+    <div class="area-1">
+        <div class="area-2">
+            <div align='center'><form action="login.php" method="post"><div>
+                <h3>Login</h3>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+                <br><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+                <br><br>
+                <input type="submit" value="login" name="submit">
+            </form>
+        </div>
+    </div>
+    <style>
+        .area-1{
+            width: 1140px;
+            margin: 0 auto;
+        }
+        .area-2{
+            margin-top: 210px;
+        }
+    </style>
     <div style="">
         <?php  echo $error; ?>
     </div>

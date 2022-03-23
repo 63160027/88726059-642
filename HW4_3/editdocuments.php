@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['loggined'])){
+    header('Location: login.php');
+}else{
+    echo "<div align='center'>Hello ".$_SESSION['stf_name'] . "<div>";
+}
+
 require_once("dbconfig.php");
 
 // ตรวจสอบว่ามีการ post มาจากฟอร์ม ถึงจะลบ
@@ -76,37 +84,38 @@ if ($_POST){
 
 <body style="background-color:#FEF5ED">
     <div class="container">
-        <h1>แก้ไข</h1>
+        <div align='left'><h1>แก้ไข</h1></div>
+        <div align='left'><h3><a href='documents.php'><span class='glyphicon glyphicon-chevron-left'></span></a> </h3></div>
         <form action="editdocuments.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
-                <label for="doc_num">เลขที่</label>
-                <input type="text" class="form-control" name="doc_num" id="doc_num" value="<?php echo $row->doc_num;?>">
+                <div align='left'><label for="doc_num">เลขที่</label></div>
+                <div align='left'><input type="text" class="form-control" name="doc_num" id="doc_num" value="<?php echo $row->doc_num;?>">
+            </div></div>
+            <div class="form-group">
+                <div align='left'><label for="doc_title">เรื่อง</label></div>
+                <div align='left'><input type="text" class="form-control" name="doc_title" id="doc_title" value="<?php echo $row->doc_title;?>"></div>
             </div>
             <div class="form-group">
-                <label for="doc_title">เรื่อง</label>
-                <input type="text" class="form-control" name="doc_title" id="doc_title" value="<?php echo $row->doc_title;?>">
+                <div align='left'><label for="doc_start_date">วันที่เริ่มต้น</label></div>
+                <div align='left'><input type="date" class="form-control" name="doc_start_date" id="doc_start_date" value="<?php echo  $row->doc_start_date;?>"></div>
             </div>
             <div class="form-group">
-                <label for="doc_start_date">วันที่เริ่มต้น</label>
-                <input type="date" class="form-control" name="doc_start_date" id="doc_start_date" value="<?php echo  $row->doc_start_date;?>">
+                <div align='left'><label for="doc_to_date">วันที่สิ้นสุด</label></div>
+                <div align='left'><input type="date" class="form-control" name="doc_to_date" id="doc_to_date" value="<?php echo $row->doc_to_date;?>"></div>
             </div>
             <div class="form-group">
-                <label for="doc_to_date">วันที่สิ้นสุด</label>
-                <input type="date" class="form-control" name="doc_to_date" id="doc_to_date" value="<?php echo $row->doc_to_date;?>">
+                <div align='left'><label for="doc_status">สถานะ</label><br></div>
+                <div align='left'><input type="radio"  name="doc_status" id="doc_status" value="Active"
+                    <?php if($row->doc_status == "Active"){echo "checked";}?>> Active <br></div>
+                    <div align='left'><input type="radio"  name="doc_status" id="doc_status" value="Expire"
+                    <?php if($row->doc_status == "Expire"){echo "checked";}?>> Expire</div>
             </div>
             <div class="form-group">
-                <label for="doc_status">สถานะ</label><br>
-                <input type="radio"  name="doc_status" id="doc_status" value="Active"
-                    <?php if($row->doc_status == "Active"){echo "checked";}?>> Active <br>
-                <input type="radio"  name="doc_status" id="doc_status" value="Expire"
-                    <?php if($row->doc_status == "Expire"){echo "checked";}?>> Expire
-            </div>
-            <div class="form-group">
-                <label for="doc_file_name">ชื่อไฟล์เอกสาร</label>
-                <input type="file" class="form-control" name="doc_file_name" id="doc_file_name" value="<?php echo $row->doc_file_name;?>">
+                <div align='left'><label for="doc_file_name">ชื่อไฟล์เอกสาร</label></div>
+                <div align='left'><input type="file" class="form-control" name="doc_file_name" id="doc_file_name" value="<?php echo $row->doc_file_name;?>"></div>
             </div>
             <input type="hidden" name="id" value="<?php echo $row->id;?>">
-            <button type="submit" class="btn btn-success">Update</button>
+            <div align='left'><button type="submit" class="btn btn-success">Update</button></div>
         </form>
 </body>
 

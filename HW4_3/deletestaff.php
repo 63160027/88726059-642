@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['loggined'])){
+    header('Location: login.php');
+}else{
+    echo "<div align='center'>Hello ".$_SESSION['stf_name'] . "<div>";
+}
+
 require_once("dbconfig.php");
 
 // ตรวจสอบว่ามีการ post มาจากฟอร์ม ถึงจะลบ
@@ -42,25 +50,27 @@ if ($_POST){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body style="background-color:#FEF5ED">
     <div class="container">
-        <h1>ลบข้อมูล</h1>
+        <div align='left'><h1>ลบข้อมูล</h1></div>
+        <div align='left'><h3><a href='documents.php'><span class='glyphicon glyphicon-chevron-left'></span></a> </h3></div>
         <table class="table table-hover">
             <tr>
-                <th style='width:120px'>รหัสบุคลากร</th>
-                <td><?php echo $row->stf_code;?></td>
+                <div align='left'><th style='width:120px'>รหัสบุคลากร</th></div>
+                <div align='left'><td><?php echo $row->stf_code;?></td></div>
             </tr>
             <tr>
-                <th>ชื่อ-นามสกุล</th>
-                <td><?php echo $row->stf_name;?></td>
+                <div align='left'><th>ชื่อ-นามสกุล</th></div>
+                <div align='left'><td><?php echo $row->stf_name;?></td></div>
             </tr>
             <tr>
 
         </table>
         <form action="deletestaff.php" method="post">
             <input type="hidden" name="id" value="<?php echo $row->id;?>">
-            <input type="submit" value="Confirm delete" class="btn btn-danger">
-            <button type="button" class="btn btn-warning" onClick="window.history.back()">Cancel Delete</button>
+            <div align='left'><input type="submit" value="Confirm delete" class="btn btn-danger"></div>
+            <br>
+            <div align='left'><button type="button" class="btn btn-warning" onClick="window.history.back()">Cancel Delete</button></div>
         </form>
 </body>
 

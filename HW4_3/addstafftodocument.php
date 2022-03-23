@@ -50,15 +50,16 @@ if ($_POST){
     $result = $stmt->get_result();
 }
 ?>
-
-<form action="addstafftodocument.php" method="post">
-    <input type="hidden" name="id" value="<?php echo $doc_id; ?>">
-    <?php
-    while($row = $result->fetch_object()){ ?>
-    <div class="checkbox">
-        <label><input type="checkbox" name="staff_id[]" <?php if ($row->doc_id <> null) echo "checked";?>
-                value="<?php echo $row->id; ?>"><?php echo $row->stf_name; ?></label>
-    </div>
-    <?php } ?>
-    <input type="submit">
-</form>
+<body style="background-color:#FEF5ED">
+    <form action="addstafftodocument.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $doc_id; ?>">
+        <?php
+        while($row = $result->fetch_object()){ ?>
+        <div class="checkbox">
+            <label><input type="checkbox" name="staff_id[]" <?php if ($row->doc_id <> null) echo "checked";?>
+                    value="<?php echo $row->id; ?>"><?php echo $row->stf_name; ?></label>
+        </div>
+        <?php } ?>
+        <input type="submit">
+    </form>
+</body>

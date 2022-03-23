@@ -47,9 +47,10 @@ if ($_POST){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body style="background-color:#FEF5ED">
     <div class="container">
     <div align='left'><h1>เพิ่มบุคลากร</h1></div>
+    <div align='left'><h3><a href='documents.php'><span class='glyphicon glyphicon-chevron-left'></span></a> </h3></div>
         <form action="newstaff.php" method="post">
             <div class="form-group">
                 <div align='left'><label for="stf_code">รหัสบุคลากร</label></div>

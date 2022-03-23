@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['loggined'])){
+    header('Location: login.php');
+}else{
+    echo "<div align='center'>Hello ".$_SESSION['stf_name'] . "<div>";
+}
+
 require_once("dbconfig.php");
 
 // ตรวจสอบว่ามีการ post มาจากฟอร์ม ถึงจะลบ
@@ -43,19 +51,20 @@ if ($_POST){
 
 <body style="background-color:#FEF5ED">
     <div class="container">
-        <h1>แก้ไข</h1>
+        <div align='left'><h1>แก้ไข</h1></div>
+        <div align='left'><h3><a href='documents.php'><span class='glyphicon glyphicon-chevron-left'></span></a> </h3></div>
         <form action="editstaff.php" method="post">
             <div class="form-group">
-                <label for="stf_code">รหัสบุคลากร</label>
-                <input type="text" class="form-control" name="stf_code" id="stf_code" value="<?php echo $row->stf_code;?>">
+                <div align='left'><label for="stf_code">รหัสบุคลากร</label></div>
+                <div align='left'><input type="text" class="form-control" name="stf_code" id="stf_code" value="<?php echo $row->stf_code;?>"></div>
             </div>
             <div class="form-group">
-                <label for="stf_name">ชื่อบุคลากร</label>
-                <input type="text" class="form-control" name="stf_name" id="stf_name" value="<?php echo $row->stf_name;?>">
+                <div align='left'><label for="stf_name">ชื่อบุคลากร</label></div>
+                <div align='left'><input type="text" class="form-control" name="stf_name" id="stf_name" value="<?php echo $row->stf_name;?>"></div>
             </div>
             
             <input type="hidden" name="id" value="<?php echo $row->id;?>">
-            <button type="submit" class="btn btn-success">Update</button>
+            <div align='left'><button type="submit" class="btn btn-success">Update</button></div>
         </form>
 </body>
 
