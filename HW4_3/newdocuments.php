@@ -3,8 +3,6 @@
 session_start();
 if(!isset($_SESSION['loggined'])){
     header('Location: login.php');
-}else{
-    echo "<div align='center'>Hello ".$_SESSION['stf_name'] . "<div>";
 }
 
 require_once("dbconfig.php");
@@ -47,8 +45,9 @@ if ($_POST){
     //
 
     // redirect ไปยัง actor.php
-    header("location: documents.php");
+    header("location: documents.php"); //output
 }
+echo "<div align='center'>Hello ".$_SESSION['stf_name'] . "<div>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +59,31 @@ if ($_POST){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+    function check() {
+        var doc_num = document.getElementById("doc_num").value;
+        document.getElementById("disp").innerHTML = doc_num;
+        var xhttp = new XMLHttpRequest();
+        console.log("hello");
+        xhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status ==200 ) {
+                document.getElementById("disp").innerHTML = this.responseText;
+                if (this.responseText != ""){
+                    document.getElementById("submit").disabled = true;
+                    document.getElementById("disp").innerHTML = "<a href='addstafftodocument.php?id=" + 
+                    this.responseText + "'>จัดการกรรมการ</a>";
+                }else{
+                    document.getElementById("submit").disabled = false;
+                    document.getElementById("disp").innerHTML = "";
+                }
+            }
+        };
+        console.log("hello");
+        xhttp.open("GET", "check.php?docnum=" + doc_num, true);
+        console.log("hello");
+        xhttp.send();
+    }
+</script>
 </head>
 
 <body style="background-color:#FEF5ED">
@@ -69,7 +93,8 @@ if ($_POST){
         <form action="newdocuments.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <div align='left'><label for="doc_num">เลขที่</label><div>
-                <div align='left'><input type="text" class="form-control" name="doc_num" id="doc_num"><div>
+                <div align='left'><input type="text" class="form-control" name="doc_num" id="doc_num" onkeyup="check()"><div>
+                <h3><div id = "disp"></div></h3>
             </div>
             <div class="form-group">
                 <div align='left'><label for="doc_title">เรื่อง</label><div>
@@ -92,7 +117,7 @@ if ($_POST){
                 <div align='left'><label for="doc_file_name">ชื่อไฟล์เอกสาร</label><div>
                 <div align='left'><input type="file" class="form-control" name="doc_file_name" id="doc_file_name"><div>
             </div><br>
-            <div align='left'><button type="submit" class="btn btn-success">Save</button><div>
+            <div align='left'><button type="submit" class="btn btn-success" id="submit">Save</button><div>
         </form>
 </body>
 
